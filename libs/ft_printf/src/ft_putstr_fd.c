@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/03 21:31:19 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/13 16:03:01 by marvin@42.f       #+#    #+#             */
+/*   Updated: 2022/12/30 16:11:52 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/push_swap.h"
+#include "../libftprintf.h"
 
-int	main(int argc, char **argv)
+int	ft_putstr_fd(char *s, int fd)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		iter;
+	int	i;
 
-	if (argc > 2)
+	i = 0;
+	if (!s)
+		return (write(1, "(null)", 6));
+	while (s[i])
 	{
-		iter = 1;
-		while (argv[iter])
-		{
-			add_to_stack(&stack_a, ft_atoi(argv[iter]));
-			iter++;
-		}
-		stack_b = stack_a;
-		while (stack_b)
-		{
-			ft_printf("%d", *(int *)stack_b->content);
-			stack_b = stack_b->next;
-		}
+		write(fd, &s[i], 1);
+		i++;
 	}
-	else if (argc == 2)
-	{
-		
-	}
+	return (i);
 }

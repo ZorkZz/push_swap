@@ -5,48 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/03 21:26:51 by astachni         ###   ########.fr        #
+#    Created: 2022/11/21 20:55:44 by astachni          #+#    #+#              #
+#    Updated: 2022/12/30 16:11:20 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
 
-OBJS_DIR = objs/
 
-SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c
+NAME = libftprintf.a
 
-OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
+SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putstr_fd.c src/print_func.c src/ft_itoa.c src/ft_itoa_u.c src/itoa_hex.c src/ft_strdup.c src/itoa_hex_point.c
 
-LIBS = libs/libft/libft.a libs/ft_printf/libftprintf.a
+OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -g3 -fsanitize=address
-
 RM = rm -f
 
-HEADERS = headers/push_swap.h
+CFLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o: %.c $(HEADER) Makefile
-	$(CC) $(CFLAGS) -c $< -o $@
+HEADER = ft_printf.h libftprintf.h
 
-$(NAME):	$(OBJS)
-	make bonus -C libs/libft
-	make -C libs/ft_printf
-	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
-	@norminette main.c srcs/*.c
+%.o: %.c ${HEADER} Makefile
+	$(CC) $(CFLAGS)  -c $< -o ${<:.c=.o}
 
-clean:
-	make clean -C libs/libft
-	$(RM) $(OBJS)
-
-fclean:	clean
-	make fclean -C libs/libft
+$(NAME):	${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 all: $(NAME)
 
-re:	fclean
-	$(NAME) all
+clean:
+	$(RM) $(OBJS)
 
-.PHONY: all clean fclean re
+fclean:	clean
+	$(RM) ${NAME}
+
+re: fclean all
+
+.PHONY:	all clean fclean re

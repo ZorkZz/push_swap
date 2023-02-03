@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/03 21:31:19 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/21 19:04:49 by astachni          #+#    #+#             */
+/*   Updated: 2022/12/30 16:13:15 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/push_swap.h"
+#ifndef FT_PRINTF_H
 
-int	main(int argc, char **argv)
-{
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		iter;
+# define FT_PRINTF_H
 
-	if (argc > 2)
-	{
-		iter = 1;
-		while (argv[iter])
-		{
-			add_to_stack(&stack_a, ft_atoi(argv[iter]));
-			iter++;
-		}
-		stack_b = stack_a;
-		while (stack_b)
-		{
-			ft_printf("%d", *(int *)stack_b->content);
-			stack_b = stack_b->next;
-		}
-	}
-	else if (argc == 2)
-	{
-		
-	}
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# define BASE_MIN "0123456789abcdef"
+# define BASE_MAJ "0123456789ABCDEF"
+
+int		ft_printf(const char *str, ...);
+
+#endif
