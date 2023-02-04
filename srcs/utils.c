@@ -6,11 +6,21 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:16:10 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/03 21:30:18 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/04 13:01:19 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
+
+void	free_lst(t_list *lst)
+{
+	while (lst)
+	{
+		ft_printf("caca");
+		free(lst->content);
+		lst = lst->next;
+	}
+}
 
 void	add_to_stack(t_list **lst, int i)
 {

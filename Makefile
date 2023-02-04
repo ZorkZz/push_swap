@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/03 21:26:51 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/04 13:01:39 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
 
-LIBS = libs/libft/libft.a libs/ft_printf/libftprintf.a
+LIBS = libs/libft/libft.a
 
 CC = cc
 
@@ -33,7 +33,6 @@ $(OBJS_DIR)%.o: %.c $(HEADER) Makefile
 
 $(NAME):	$(OBJS)
 	make bonus -C libs/libft
-	make -C libs/ft_printf
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 	@norminette main.c srcs/*.c
 

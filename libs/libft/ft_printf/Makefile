@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 20:55:44 by astachni          #+#    #+#              #
-#    Updated: 2022/12/30 16:11:20 by astachni         ###   ########.fr        #
+#    Updated: 2022/11/29 20:49:20 by astachni@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = ft_printf.h libftprintf.h
+HEADER = ft_printf.h
 
 %.o: %.c ${HEADER} Makefile
 	$(CC) $(CFLAGS)  -c $< -o ${<:.c=.o}
