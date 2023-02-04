@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:47:22 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/11/29 21:09:03 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/12/30 16:11:52 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../libftprintf.h"
 
 static int	print_int(int number)
 {

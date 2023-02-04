@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:58:06 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/14 18:27:37 by marvin@42.f      ###   ########.fr       */
+/*   Created: 2023/01/07 17:04:55 by astachni          #+#    #+#             */
+/*   Updated: 2023/01/12 17:02:19 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
 
-int	ft_isascii(int c)
-{
-	return (c >= 0 && c <= 127);
-}
+# define GET_NEXT_LINE_H
+
+char	*get_next_line(int fd);
+
+#endif

@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/04 13:01:39 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/04 16:59:26 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
 
-LIBS = libs/libft/libft.a
+LIBS = libs/libft/libft.a libs/ft_printf/libftprintf.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 
 RM = rm -f
 
@@ -33,15 +33,19 @@ $(OBJS_DIR)%.o: %.c $(HEADER) Makefile
 
 $(NAME):	$(OBJS)
 	make bonus -C libs/libft
+	make -C libs/ft_printf
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 	@norminette main.c srcs/*.c
 
 clean:
 	make clean -C libs/libft
+	make clean -C libs/ft_printf
 	$(RM) $(OBJS)
 
 fclean:	clean
+	make fclean -C libs/ft_printf
 	make fclean -C libs/libft
+	rm push_swap
 
 all: $(NAME)
 

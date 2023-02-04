@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 15:26:10 by marvin@42.f       #+#    #+#              #
-#    Updated: 2023/02/04 13:03:12 by astachni         ###   ########.fr        #
+#    Updated: 2022/11/24 17:52:47 by astachni@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,21 +32,17 @@ HEADER = libft.h
 	$(CC) ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
-	make -C ft_printf
-	ar rcs ${NAME} ${OBJS} ft_printf/libftprintf.a
+	ar rcs ${NAME} ${OBJS}
 
 all: $(NAME)
 
 bonus: ${OBJS_BONUS} ${OBJS}
-	make -C ft_printf
-	ar rcs ${NAME} ${OBJS} ${OBJS_BONUS} ft_printf/libftprintf.a
+	ar rcs ${NAME} ${OBJS} ${OBJS_BONUS}
 
 clean:
-	make clean -C ft_printf
 	$(RM) $(OBJS) ${OBJS_BONUS}
 
 fclean:	clean
-	make fclean -C ft_printf
 	$(RM) ${NAME}
 
 re: fclean all

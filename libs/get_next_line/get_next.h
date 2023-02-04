@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   get_next.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 20:41:31 by astachni          #+#    #+#             */
-/*   Updated: 2022/12/31 02:40:21 by astachni         ###   ########.fr       */
+/*   Created: 2023/01/07 17:04:55 by astachni          #+#    #+#             */
+/*   Updated: 2023/01/12 17:16:29 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_H
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	if (!lst)
-		return ;
-	if (*lst)
-		ft_lstlast(*lst)->next = new;
-	else
-		*lst = new;
-}
+# define GET_NEXT_H
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1025
+# endif
+
+char	*get_next_line(int fd);
+size_t	ft_strlenn(char const *str);
+void	ft_bzero(char *str);
+char	*ft_strfjoin(char *s1, char const *buffer, int read_value);
+
+#endif

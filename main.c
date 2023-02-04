@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/04 12:19:02 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:25:55 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,43 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int		iter;
+	t_list	*temp;
 
-	if (argc > 2)
+	stack_b = NULL;
+	parsing(&stack_a, argv, argc);
+	temp = stack_a;
+	ft_printf("------");
+	while (temp)
 	{
-		iter = 1;
-		while (argv[iter])
-		{
-			add_to_stack(&stack_a, ft_atoi(argv[iter]));
-			iter++;
-		}
-		stack_b = stack_a;
-		while (stack_b)
-		{
-			ft_printf("%d", *(int *)stack_b->content);
-			stack_b = stack_b->next;
-		}
+		ft_printf("%d, ", *(int *)temp->content);
+		temp = temp->next;
 	}
-	else if (argc == 2)
+	ft_printf("------\n");
+	swap(&stack_a);
+	temp = stack_a;
+	ft_printf("------");
+	while (temp)
 	{
-		return (0);
+		ft_printf("%d, ", *(int *)temp->content);
+		temp = temp->next;
 	}
+	ft_printf("------\n");
+	push(&stack_b, &stack_a);
+	temp = stack_a;
+	ft_printf("------");
+	while (temp)
+	{
+		ft_printf("%d, ", *(int *)temp->content);
+		temp = temp->next;
+	}
+	ft_printf("------\n");
+	temp = stack_b;
+	ft_printf("------");
+	while (temp)
+	{
+		ft_printf("%d, ", *(int *)temp->content);
+		temp = temp->next;
+	}
+	ft_printf("------\n");
 	free_lst(stack_a);
 }

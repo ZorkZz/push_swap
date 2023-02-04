@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:58:06 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/14 18:27:37 by marvin@42.f      ###   ########.fr       */
+/*   Created: 2022/11/21 19:04:49 by astachni          #+#    #+#             */
+/*   Updated: 2022/12/30 16:13:15 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
 
-int	ft_isascii(int c)
-{
-	return (c >= 0 && c <= 127);
-}
+# define FT_PRINTF_H
+
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# define BASE_MIN "0123456789abcdef"
+# define BASE_MAJ "0123456789ABCDEF"
+
+int		ft_printf(const char *str, ...);
+
+#endif
