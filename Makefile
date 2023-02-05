@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: astachni <astachni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/04 16:59:26 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/05 17:19:02 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 OBJS_DIR = objs/
 
-SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c
+SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c srcs/sort.c srcs/parsing.c
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
 
@@ -49,7 +49,6 @@ fclean:	clean
 
 all: $(NAME)
 
-re:	fclean
-	$(NAME) all
+re:	fclean all
 
 .PHONY: all clean fclean re

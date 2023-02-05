@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:16:10 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/04 17:46:54 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:18:18 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-
-void	parsing(t_list **lst, char **argv, int argc)
-{
-	int		iter;
-
-	*lst = NULL;
-	if (argc > 2)
-	{
-		iter = 1;
-		while (argv[iter])
-		{
-			add_to_stack(lst, ft_atoi(argv[iter]));
-			iter++;
-		}
-	}
-}
 
 void	free_lst(t_list *lst)
 {

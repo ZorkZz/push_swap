@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:21:39 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/04 17:53:45 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:22:11 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 // interverti les 2 premiers elements
-void	swap(t_list **stack)
+void	swap(t_list **stack, char c)
 {
 	t_list	*tmp;
 
@@ -23,10 +23,14 @@ void	swap(t_list **stack)
 	(*stack)->next = tmp->next;
 	tmp->next = (*stack);
 	(*stack) = tmp;
+	if (c == 'a')
+		ft_printf("sa\n");
+	else if (c == 'b')
+		ft_printf("sb\n");
 }
 
 //premier element de la stack va dans lautre stack
-void	push(t_list **dst, t_list **src)
+void	push(t_list **dst, t_list **src, char c)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;
@@ -38,10 +42,14 @@ void	push(t_list **dst, t_list **src)
 	tmp_a = *src;
 	*src = tmp_b;
 	*dst = tmp_a;
+	if (c == 'a')
+		ft_printf("pa\n");
+	else if (c == 'b')
+		ft_printf("pb\n");
 }
 
 // decale tous d'une position vers le haut
-void	rotate(t_list **stack)
+void	rotate(t_list **stack, char c)
 {
 	t_list	*tmp;
 	t_list	*tmp1;
@@ -54,10 +62,14 @@ void	rotate(t_list **stack)
 	(*stack) = tmp1;
 	ft_lstlast(tmp1)->next = tmp;
 	tmp->next = NULL;
+	if (c == 'a')
+		ft_printf("ra\n");
+	else if (c == 'b')
+		ft_printf("rb\n");
 }
 
 // decale tous d'une position vers le bas
-void	reverse(t_list **stack)
+void	reverse(t_list **stack, char c)
 {
 	t_list	*tmp;
 	t_list	*tmp1;
@@ -77,4 +89,8 @@ void	reverse(t_list **stack)
 		size--;
 	}
 	tmp->next = NULL;
+	if (c == 'a')
+		ft_printf("rra\n");
+	else
+		ft_printf("rrb\n");
 }
