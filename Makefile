@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: astachni <astachni@student.42.fr>          +#+  +:+       +#+         #
+#    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/05 17:19:02 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/06 17:21:06 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
 
 LIBS = libs/libft/libft.a libs/ft_printf/libftprintf.a
 
-CC = cc
+CC = clang
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
