@@ -6,11 +6,25 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:16:10 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/07 16:32:48 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:59:19 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
+
+int	is_sorted(t_list **stack)
+{
+	t_list	*temp;
+
+	temp = *stack;
+	while (temp && temp->next)
+	{
+		if (temp->content > temp->next->content)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
 
 void	free_lst(t_list *lst)
 {

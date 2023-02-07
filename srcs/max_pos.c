@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:32:41 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/07 16:37:46 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:42:31 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ ssize_t	max_pos(t_list *lst)
 	}
 	return (pos);
 }
-
 
 ssize_t	min_pos(t_list *lst)
 {

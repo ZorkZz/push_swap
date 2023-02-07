@@ -6,27 +6,13 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/07 16:38:13 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:07:58 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-int	is_sorted(t_list **stack)
-{
-	t_list	*temp;
-
-	temp = *stack;
-	while (temp && temp->next)
-	{
-		if (temp->content > temp->next->content)
-			return (1);
-		temp = temp->next;
-	}
-	return (0);
-}
-
-void	sort3(t_list **stack_a)
+void	sort_3(t_list **stack_a)
 {
 	ssize_t	max;
 
@@ -41,18 +27,35 @@ void	sort3(t_list **stack_a)
 	return ;
 }
 
+void	sort_4(t_list **stack_a, t_list **stack_b)
+{
+	ssize_t	min;
+
+	min = min_pos(*stack_a);
+	if (min == 3 || min == 2)
+	{
+		if (min == 3)
+			rotate(stack_a, 'a');
+		swap(stack_a, 'a');
+	}
+	if (min == 4)
+		reverse (stack_a, 'a');
+	push(stack_b, stack_a, 'b');
+	sort_3(stack_a);
+	push(stack_a, stack_b, 'a');
+}
+
 void	sort(t_list **stack_a, t_list **stack_b)
 {
 	int		size_a;
 
-	(void)stack_b;
 	size_a = ft_lstsize(*stack_a);
 	if (size_a == 3)
 	{
-		sort3(stack_a);
+		sort_3(stack_a);
 	}
-	if (sort == 4)
+	if (size_a == 4)
 	{
-		
+		sort_4(stack_a, stack_b);
 	}
 }

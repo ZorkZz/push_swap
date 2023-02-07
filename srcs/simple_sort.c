@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:21:39 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/07 16:24:05 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:54:52 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	rotate(t_list **stack, char c)
 // decale tous d'une position vers le bas
 void	reverse(t_list **stack, char c)
 {
+	//a fix
 	t_list	*tmp;
 	t_list	*tmp1;
 	int		size;
