@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:23:29 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/05 17:15:44 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:37:55 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ void	free_lst(t_list *lst);
 void	parsing(t_list **lst, char **argv, int argc);
 void	sort(t_list **stack_a, t_list **stack_b);
 int		is_sorted(t_list **stack);
+ssize_t	max_pos(t_list *lst);
+ssize_t	min_pos(t_list *lst);
 
 #endif

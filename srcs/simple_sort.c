@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:21:39 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/06 17:20:43 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:24:05 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	reverse(t_list **stack, char c)
 	size = ft_lstsize(tmp);
 	(*stack)->next = tmp1;
 	tmp = tmp1;
-	while (size >= -1)
+	while (size >= 0)
 	{
 		tmp = tmp->next;
 		size--;

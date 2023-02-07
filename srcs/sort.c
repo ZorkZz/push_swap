@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/05 17:24:43 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:38:13 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,33 @@ int	is_sorted(t_list **stack)
 	return (0);
 }
 
+void	sort3(t_list **stack_a)
+{
+	ssize_t	max;
+
+	max = max_pos(*stack_a);
+	if (max == 1)
+		rotate(stack_a, 'a');
+	if (max == 2)
+		reverse(stack_a, 'a');
+	if (*(ssize_t *)(*stack_a)->content >
+			*(ssize_t *)(*stack_a)->next->content)
+		swap(stack_a, 'a');
+	return ;
+}
+
 void	sort(t_list **stack_a, t_list **stack_b)
 {
-	int	size_a;
+	int		size_a;
 
 	(void)stack_b;
 	size_a = ft_lstsize(*stack_a);
-	if (size_a < 6)
+	if (size_a == 3)
 	{
-		reverse(stack_a, 'a');
+		sort3(stack_a);
+	}
+	if (sort == 4)
+	{
+		
 	}
 }
