@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/07 17:20:20 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:24:30 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 	}
 	push(stack_b, stack_a, 'b');
 	sort_4(stack_a, stack_b);
+	push(stack_a, stack_b, 'a');
 }
 
 void	sort(t_list **stack_a, t_list **stack_b)

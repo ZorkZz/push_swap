@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:21:39 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/07 16:54:52 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:50:34 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,13 @@ void	push(t_list **dst, t_list **src, char c)
 void	rotate(t_list **stack, char c)
 {
 	t_list	*tmp;
-	t_list	*tmp1;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
-	tmp1 = (*stack);
-	tmp = (*stack);
-	tmp1 = tmp1->next;
-	(*stack) = tmp1;
-	ft_lstlast(tmp1)->next = tmp;
-	tmp->next = NULL;
+	tmp = (*stack)->next;
+	ft_lstlast(tmp)->next = *stack;
+	(*stack)->next = NULL;
+	(*stack) = tmp;
 	if (c == 'a')
 		ft_printf("ra\n");
 	else if (c == 'b')
@@ -71,7 +68,6 @@ void	rotate(t_list **stack, char c)
 // decale tous d'une position vers le bas
 void	reverse(t_list **stack, char c)
 {
-	//a fix
 	t_list	*tmp;
 	t_list	*tmp1;
 	int		size;
@@ -80,16 +76,12 @@ void	reverse(t_list **stack, char c)
 		return ;
 	tmp = (*stack);
 	tmp1 = (*stack);
-	*stack = ft_lstlast(*stack);
-	size = ft_lstsize(tmp);
-	(*stack)->next = tmp1;
-	tmp = tmp1;
-	while (size >= 0)
-	{
-		tmp = tmp->next;
-		size--;
-	}
-	tmp->next = NULL;
+	size = ft_lstsize(tmp1);
+	tmp = ft_lstlast(tmp);
+	tmp->next = tmp1;
+	tmp1 = inter_n_times_change(tmp1, size - 2);
+	tmp1->next = NULL;
+	(*stack) = tmp;
 	if (c == 'a')
 		ft_printf("rra\n");
 	else

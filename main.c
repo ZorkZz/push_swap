@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/07 16:41:38 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:25:37 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	//change compilateur
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_list	*temp;
@@ -38,4 +37,5 @@ int	main(int argc, char **argv)
 		temp = temp->next;
 	}
 	ft_printf("------\n");
+	temp = stack_b;
 }

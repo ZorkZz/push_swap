@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/07 16:33:13 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/08 16:17:25 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
 
 LIBS = libs/libft/libft.a libs/ft_printf/libftprintf.a
 
-CC = clang
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
