@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:16:10 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/08 16:45:11 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:16:06 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_list **stack)
 	temp = *stack;
 	while (temp && temp->next)
 	{
-		if (temp->content > temp->next->content)
+		if (*(int *)temp->content > *(int *)temp->next->content)
 			return (1);
 		temp = temp->next;
 	}

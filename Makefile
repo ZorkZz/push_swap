@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/08 16:17:25 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/10 17:10:58 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 OBJS_DIR = objs/
 
-SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c srcs/sort.c srcs/parsing.c srcs/max_pos.c
+SRCS = main.c srcs/simple_sort.c srcs/double_sort.c srcs/utils.c srcs/sort.c srcs/parsing.c srcs/max_pos.c srcs/quick_sort.c
 
 OBJS = $(SRCS:%.c=$(OBJS_DIR)%.o)
 

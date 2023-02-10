@@ -6,22 +6,22 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:32:41 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/07 16:42:31 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:12:38 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-ssize_t	ft_lstpos(t_list *lst, ssize_t num)
+int	ft_lstpos(t_list *lst, int num)
 {
-	ssize_t	i;
+	int		i;
 	t_list	*temp;
 
 	temp = lst;
 	i = 1;
 	while (temp)
 	{
-		if (*(ssize_t *)temp->content == num)
+		if (*(int *)temp->content == num)
 			return (i);
 		i++;
 		temp = temp->next;
@@ -29,20 +29,20 @@ ssize_t	ft_lstpos(t_list *lst, ssize_t num)
 	return (i);
 }
 
-ssize_t	max_pos(t_list *lst)
+int	max_pos(t_list *lst)
 {
-	ssize_t	max;
+	int		max;
 	t_list	*temp;
 	t_list	*temp1;
-	ssize_t	pos;
+	int		pos;
 
 	temp = lst;
-	max = *(ssize_t *)temp->content;
+	max = *(int *)temp->content;
 	while (temp)
 	{
-		if (*(ssize_t *)temp->content >= max)
+		if (*(int *)temp->content >= max)
 		{
-			max = *(ssize_t *)temp->content;
+			max = *(int *)temp->content;
 			temp1 = lst;
 			pos = ft_lstpos(temp1, max);
 		}
@@ -51,20 +51,20 @@ ssize_t	max_pos(t_list *lst)
 	return (pos);
 }
 
-ssize_t	min_pos(t_list *lst)
+int	min_pos(t_list *lst)
 {
-	ssize_t	min;
+	int		min;
 	t_list	*temp;
 	t_list	*temp1;
-	ssize_t	pos;
+	int		pos;
 
 	temp = lst;
-	min = *(ssize_t *)temp->content;
+	min = *(int *)temp->content;
 	while (temp)
 	{
-		if (*(ssize_t *)temp->content <= min)
+		if (*(int *)temp->content <= min)
 		{
-			min = *(ssize_t *)temp->content;
+			min = *(int *)temp->content;
 			temp1 = lst;
 			pos = ft_lstpos(temp1, min);
 		}
