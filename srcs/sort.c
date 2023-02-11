@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/10 19:00:30 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:44:12 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	first_sort(t_list **stack_a, t_list **stack_b)
 	iter = 0;
 	while (iter <= size)
 	{
-		while (*(int *)temp->content <= mean)
+		while (*(int *)temp->content >= mean)
 			push(stack_b, &temp, 'b');
-		if (*(int *)temp->content > mean)
+		if (*(int *)temp->content < mean)
 			rotate(&temp, 'a');
 		iter += 1;
 	}
@@ -45,10 +45,9 @@ void	a_t_b(t_list **stack_a, t_list **stack_b)
 {
 	int			mean;
 	t_list		*temp;
-	const int	size = ft_lstsize(*stack_a);
 	int			iter;
+	const int	size = ft_lstsize(*stack_a);
 
-	(void)stack_b;
 	mean = 0;
 	temp = *stack_a;
 	while (temp)
@@ -61,15 +60,10 @@ void	a_t_b(t_list **stack_a, t_list **stack_b)
 	iter = 0;
 	while (iter <= size)
 	{
-		while (*(int *)temp->content > mean)
+		while (*(int *)temp->content <= mean)
 			push(stack_b, &temp, 'b');
-		if (*(int *)temp->content <= mean)
-		{
-			if (max_pos(temp) < (size / 2))
-				rotate(&temp, 'b');
-			else
-				reverse(&temp, 'b');
-		}
+		if (*(int *)temp->content > mean)
+			rotate(&temp, 'a');
 		iter += 1;
 	}
 	*stack_a = temp;
@@ -80,28 +74,25 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 	first_sort(stack_a, stack_b);
 	while (stack_b && (*stack_b)->next)
 	{
-		if (ft_lstsize(*stack_b) > 1)
-		{
-			while (max_pos(*stack_b) != 1)
-			{
-				if (max_pos(*stack_b) < (ft_lstsize(*stack_b) / 2))
-					rotate(stack_b, 'b');
-				else
-					reverse(stack_b, 'b');
-			}
-		}
-		push(stack_a, stack_b, 'a');
+		if (max_pos(*stack_b) == 1)
+			push(stack_a, stack_b, 'a');
+		else if (max_pos(*stack_b) > ft_lstsize(*stack_b) / 2)
+			reverse(stack_b, 'b');
+		else
+			rotate(stack_b, 'b');
 	}
-	push(stack_a, stack_b, 'a');
+	push(stack_b, stack_a, 'a');
 	a_t_b(stack_a, stack_b);
+	while (is_sorted(stack_a) != 0)
+		rotate(stack_a, 'a');
 	while (stack_b && (*stack_b)->next)
 	{
-		if (ft_lstsize(*stack_b) > 0)
-		{
-			while (min_pos(*stack_b) != 1)
-				reverse(stack_b, 'b');
-		}
-		push(stack_a, stack_b, 'a');
+		if (max_pos(*stack_b) == 1)
+			push(stack_a, stack_b, 'a');
+		else if (max_pos(*stack_b) > ft_lstsize(*stack_b) / 2)
+			reverse(stack_b, 'b');
+		else
+			rotate(stack_b, 'b');
 	}
 	push(stack_a, stack_b, 'a');
 }

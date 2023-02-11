@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   max_pos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:32:41 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/10 17:12:38 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:03:12 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	max_pos(t_list *lst)
 {
 	int		max;
 	t_list	*temp;
-	t_list	*temp1;
 	int		pos;
 
 	temp = lst;
@@ -41,13 +40,10 @@ int	max_pos(t_list *lst)
 	while (temp)
 	{
 		if (*(int *)temp->content >= max)
-		{
 			max = *(int *)temp->content;
-			temp1 = lst;
-			pos = ft_lstpos(temp1, max);
-		}
 		temp = temp->next;
 	}
+	pos = ft_lstpos(lst, max);
 	return (pos);
 }
 
@@ -55,7 +51,6 @@ int	min_pos(t_list *lst)
 {
 	int		min;
 	t_list	*temp;
-	t_list	*temp1;
 	int		pos;
 
 	temp = lst;
@@ -63,12 +58,9 @@ int	min_pos(t_list *lst)
 	while (temp)
 	{
 		if (*(int *)temp->content <= min)
-		{
 			min = *(int *)temp->content;
-			temp1 = lst;
-			pos = ft_lstpos(temp1, min);
-		}
 		temp = temp->next;
 	}
+	pos = ft_lstpos(lst, min);
 	return (pos);
 }
