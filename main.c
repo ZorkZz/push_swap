@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/11 16:44:42 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/11 17:17:58 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parsing(&stack_a, argv, argc);
 	sort(&stack_a, &stack_b);
-	ft_printf("----------------\n");
+	// ft_printf("----------------\n");
 	// while (stack_a)
 	// {
 	// 	ft_printf("%d\n", *(int *)stack_a->content);
