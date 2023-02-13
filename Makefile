@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: astachni <astachni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/10 17:10:58 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/13 16:26:00 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS = libs/libft/libft.a libs/ft_printf/libftprintf.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -g3
 
 RM = rm -f
 
