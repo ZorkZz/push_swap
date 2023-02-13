@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:23:29 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/11 14:11:23 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:42:09 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libs/libft/libft.h"
-# include "../libs/ft_printf/ft_printf.h"
 
 void	inter_n_times_no_change(t_list **lst, int n);
 t_list	*inter_n_times_change(t_list *lst, int n);

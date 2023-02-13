@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:21:39 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/13 14:44:20 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:43:52 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	swap(t_list **stack, char c)
 	tmp->next = (*stack);
 	(*stack) = tmp;
 	if (c == 'a')
-		ft_printf("sa\n");
+		ft_putendl_fd("sa", 1);
 	else if (c == 'b')
-		ft_printf("sb\n");
+		ft_putendl_fd("sb", 1);
 }
 
 //premier element de la stack va dans lautre stack
@@ -43,9 +43,9 @@ void	push(t_list **dst, t_list **src, char c)
 	*src = tmp_b;
 	*dst = tmp_a;
 	if (c == 'a')
-		ft_printf("pa\n");
+		ft_putendl_fd("pa", 1);
 	else if (c == 'b')
-		ft_printf("pb\n");
+		ft_putendl_fd("pb", 1);
 }
 
 // decale tous d'une position vers le haut
@@ -60,9 +60,9 @@ void	rotate(t_list **stack, char c)
 	(*stack)->next = NULL;
 	(*stack) = tmp;
 	if (c == 'a')
-		ft_printf("ra\n");
+		ft_putendl_fd("ra", 1);
 	else if (c == 'b')
-		ft_printf("rb\n");
+		ft_putendl_fd("rb", 1);
 }
 
 // decale tous d'une position vers le bas
@@ -83,7 +83,7 @@ void	reverse(t_list **stack, char c)
 	tmp1->next = NULL;
 	(*stack) = tmp;
 	if (c == 'a')
-		ft_printf("rra\n");
+		ft_putendl_fd("rra", 1);
 	else
-		ft_printf("rrb\n");
+		ft_putendl_fd("rrb", 1);
 }
