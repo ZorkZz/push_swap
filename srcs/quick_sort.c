@@ -6,11 +6,17 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:05:31 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/10 17:11:42 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:40:09 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
+
+void	sort_2(t_list **stack_a)
+{
+	if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
+		swap(stack_a, 'a');
+}
 
 void	sort_3(t_list **stack_a)
 {
@@ -72,7 +78,9 @@ void	quick_sort(t_list **stack_a, t_list **stack_b)
 	int		size_a;
 
 	size_a = ft_lstsize(*stack_a);
-	if (size_a == 3)
+	if (size_a == 2)
+		sort_2(stack_a);
+	else if (size_a == 3)
 		sort_3(stack_a);
 	else if (size_a == 4)
 		sort_4(stack_a, stack_b);

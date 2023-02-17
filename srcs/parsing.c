@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/13 16:23:17 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:09:59 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,7 @@ void	verif_number(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '-')
-			{
-				ft_putendl_fd("error\n", 2);
-				exit(1);
-			}
-			if (argv[i][j] == '-' && !argv[i][j + 1])
-			{
-				ft_putendl_fd("error\n", 2);
-				exit(1);
-			}
+			parsing_error(argv[i][j], argv[i][j + 1], argv[i][j - 1]);
 			j++;
 		}
 		i++;
@@ -57,7 +48,7 @@ void	verif_double(t_list **lst)
 		{
 			if (number == *(int *)temp->content)
 			{
-				ft_putendl_fd("error\n", 2);
+				ft_putendl_fd("error", 2);
 				exit(1);
 			}
 			temp = temp->next;
@@ -67,11 +58,40 @@ void	verif_double(t_list **lst)
 	}
 }
 
+void	verify_str(t_list **lst, char **strs)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (strs[i])
+	{
+		j = 0;
+		while (strs[i][j])
+		{
+			parsing_error(strs[i][j], strs[i][j + 1], strs[i][j - 1]);
+			j++;
+		}
+		i++;
+	}
+}
+
+
 void	arg_char(t_list **lst, char **argv)
 {
 	char	**args;
+	int		i;
 
 	args = ft_split(argv[1], ' ');
+	i = 0;
+	verify_str(lst, args);
+	while (args && args[i])
+	{
+		add_to_stack(lst, ft_atoi(args[i]));
+		free (args[i]);
+		i++;
+	}
+	free(args);
 }
 
 void	parsing(t_list **lst, char **argv, int argc)
@@ -79,11 +99,11 @@ void	parsing(t_list **lst, char **argv, int argc)
 	int		iter;
 
 	*lst = NULL;
-	verif_number(argv);
-	if (argc == 1)
+	if (argc == 2)
 		arg_char(lst, argv);
 	if (argc > 2)
 	{
+		verif_number(argv);
 		iter = 1;
 		while (argv[iter])
 		{
@@ -91,5 +111,6 @@ void	parsing(t_list **lst, char **argv, int argc)
 			iter++;
 		}
 	}
-	verif_double(lst);
+	if (argc > 2)
+		verif_double(lst);
 }

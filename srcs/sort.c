@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/11 16:44:12 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:41:17 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	a_t_b(t_list **stack_a, t_list **stack_b)
 	mean = mean / size;
 	temp = *stack_a;
 	iter = 0;
-	while (iter <= size)
+	while (iter < size)
 	{
-		while (*(int *)temp->content <= mean)
+		while (*(int *)temp->content < mean)
 			push(stack_b, &temp, 'b');
 		if (*(int *)temp->content > mean)
 			rotate(&temp, 'a');
@@ -81,10 +81,8 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 		else
 			rotate(stack_b, 'b');
 	}
-	push(stack_b, stack_a, 'a');
+	push(stack_a, stack_b, 'a');
 	a_t_b(stack_a, stack_b);
-	while (is_sorted(stack_a) != 0)
-		rotate(stack_a, 'a');
 	while (stack_b && (*stack_b)->next)
 	{
 		if (max_pos(*stack_b) == 1)
@@ -99,7 +97,8 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 
 void	sort(t_list **stack_a, t_list **stack_b)
 {
-	quick_sort(stack_a, stack_b);
+	if (is_sorted != 0)
+		quick_sort(stack_a, stack_b);
 	if (is_sorted(stack_a) != 0)
 		big_sort(stack_a, stack_b);
 }
