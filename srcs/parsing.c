@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/15 18:09:59 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:51:16 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	verif_double(t_list **lst)
 	}
 }
 
-void	verify_str(t_list **lst, char **strs)
+void	verify_str(char **strs)
 {
 	int	i;
 	int	j;
@@ -76,7 +76,6 @@ void	verify_str(t_list **lst, char **strs)
 	}
 }
 
-
 void	arg_char(t_list **lst, char **argv)
 {
 	char	**args;
@@ -84,7 +83,7 @@ void	arg_char(t_list **lst, char **argv)
 
 	args = ft_split(argv[1], ' ');
 	i = 0;
-	verify_str(lst, args);
+	verify_str(args);
 	while (args && args[i])
 	{
 		add_to_stack(lst, ft_atoi(args[i]));

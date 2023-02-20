@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/02/15 18:10:37 by astachni         ###   ########.fr        #
+#    Updated: 2023/02/20 15:50:30 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBS = libs/libft/libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -g3
+CFLAGS = -Wall -Wextra -Werror -g3
 
 RM = rm -f
 

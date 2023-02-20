@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/17 16:42:10 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:09:06 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ int	main(int argc, char **argv)
 	// 	ft_putchar_fd('\n', 1);
 	// 	stack_a = stack_a->next;
 	// }
+	while (stack_a)
+	{
+		free(stack_a->content);
+		stack_a = stack_a->next;
+	}
 }
