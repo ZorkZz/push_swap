@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:23:29 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/15 18:09:02 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:36:17 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	sort(t_list **stack_a, t_list **stack_b);
 int		is_sorted(t_list **stack);
 int		max_pos(t_list *lst);
 int		min_pos(t_list *lst);
-void	parsing_error(char c, char d, char e);
+int		parsing_error(char c, char d, char e);
+void	free_strs(char **strs);
+int		ft_lstpos(t_list *lst, int num);
 
 #endif

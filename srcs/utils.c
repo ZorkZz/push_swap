@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:16:10 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/10 17:16:06 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:00:00 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,6 @@ int	is_sorted(t_list **stack)
 		temp = temp->next;
 	}
 	return (0);
-}
-
-void	free_lst(t_list *lst)
-{
-	while (lst)
-	{
-		free(lst->content);
-		lst = lst->next;
-	}
-	if (lst)
-		free(lst);
 }
 
 void	add_to_stack(t_list **lst, int i)
@@ -73,4 +62,15 @@ void	inter_n_times_no_change(t_list **lst, int n)
 		copy = copy->next;
 		i++;
 	}
+}
+
+void	free_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs && strs[i])
+		free(strs[i++]);
+	if (strs)
+		free(strs);
 }
