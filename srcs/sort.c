@@ -6,41 +6,11 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/21 18:17:46 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:42:42 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-
-int	mean_verif(t_list **stack_a, int mean, int nbr)
-{
-	int		nb;
-	t_list	*temp;
-
-	nb = 0;
-	temp = (*stack_a);
-	if (nbr == 1)
-	{
-		while (temp)
-		{
-			if (*(int *)temp->content >= mean)
-				nb += 1;
-			temp = temp->next;
-		}
-	}
-	else
-	{
-		while (temp)
-		{
-			if (*(int *)temp->content < mean)
-				nb += 1;
-			temp = temp->next;
-		}
-	}
-	if (nb == 0)
-		return (0);
-	return (1);
-}
 
 void	first_sort(t_list **stack_a, t_list **stack_b)
 {
@@ -51,14 +21,8 @@ void	first_sort(t_list **stack_a, t_list **stack_b)
 	(void)stack_b;
 	mean = 0;
 	temp = *stack_a;
-	while (temp)
-	{
-		mean += *(int *)temp->content;
-		temp = temp->next;
-	}
-	mean = mean / ft_lstsize(*stack_a);
-	temp = *stack_a;
-	while (mean_verif(&temp, mean, 1) != 0)
+	mean = take_mean(temp);
+	while (mean_verif_max(&temp, mean) != 0)
 	{
 		while (*(int *)temp->content >= mean)
 			push(stack_b, &temp, 'b');
@@ -81,14 +45,8 @@ void	a_t_b(t_list **stack_a, t_list **stack_b)
 
 	mean = 0;
 	temp = *stack_a;
-	while (temp)
-	{
-		mean += *(int *)temp->content;
-		temp = temp->next;
-	}
-	mean = mean / ft_lstsize(*stack_a);
-	temp = *stack_a;
-	while (mean_verif(&temp, mean, 2) != 0)
+	mean = take_mean(temp);
+	while (mean_verif_min(&temp, mean) != 0)
 	{
 		while (*(int *)temp->content < mean)
 			push(stack_b, &temp, 'b');
