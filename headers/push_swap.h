@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:23:29 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/21 19:43:02 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:13:55 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int		ft_lstpos(t_list *lst, int num);
 int		take_mean(t_list *stack);
 int		mean_verif_max(t_list **stack_a, int mean);
 int		mean_verif_min(t_list **stack_a, int mean);
+void	radix(t_list **stack_a, t_list **stack_b);
 
 #endif

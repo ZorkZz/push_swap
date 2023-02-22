@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:18:28 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/21 18:18:04 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:47:34 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,5 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parsing(&stack_a, argv, argc);
 	sort(&stack_a, &stack_b);
-	// while (stack_a)
-	// {
-	// 	ft_printf("%d\n", *(int *)stack_a->content);
-	// 	stack_a = stack_a->next;
-	// }
-	// ft_printf("--------------------\n");
-	// while (stack_b)
-	// {
-	// 	ft_printf("%d\n", *(int *)stack_b->content);
-	// 	stack_b = stack_b->next;
-	// }
 	ft_lstclear(&stack_a, free);
 }
