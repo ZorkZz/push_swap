@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:16:10 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/21 17:00:00 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:06:30 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_list	*inter_n_times_change(t_list *lst, int n)
 	return (lst);
 }
 
-void	inter_n_times_no_change(t_list **lst, int n)
+t_list	*inter_n_times_no_change(t_list **lst, int n)
 {
 	int		i;
 	t_list	*copy;
@@ -62,6 +62,7 @@ void	inter_n_times_no_change(t_list **lst, int n)
 		copy = copy->next;
 		i++;
 	}
+	return (copy);
 }
 
 void	free_strs(char **strs)

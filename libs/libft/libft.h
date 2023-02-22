@@ -22,6 +22,7 @@
 typedef struct s_list
 {
 	void			*content;
+	void			*number;
 	struct s_list	*next;
 }					t_list;
 

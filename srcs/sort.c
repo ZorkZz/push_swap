@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:35:25 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/22 15:36:57 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:51:19 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 
 void	sort(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_a) >= 100)
-		radix(stack_a, stack_b);
-	else if (is_sorted(stack_a) != 0)
-		quick_sort(stack_a, stack_b);
-	else if (is_sorted(stack_a) != 0)
-		big_sort(stack_a, stack_b);
+	// if (ft_lstsize(*stack_a) >= 100)
+	radix(stack_a, stack_b);
+	// else if (is_sorted(stack_a) != 0)
+	// 	quick_sort(stack_a, stack_b);
+	// else if (is_sorted(stack_a) != 0)
+	// 	big_sort(stack_a, stack_b);
 }
