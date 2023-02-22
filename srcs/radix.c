@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:58:38 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/22 17:52:52 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:17:59 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	radix(t_list **stack_a, t_list **stack_b)
 {
 	const int	size = ft_lstsize(*stack_a);
 	int			i;
-
+	
+	replace_number(stack_a);
+	for (t)
 	i = 0;
 	while (is_sorted(stack_a) == 1)
 	{
@@ -32,7 +34,6 @@ static void	do_radix(t_list **stack_a, t_list **stack_b, int i, const int size)
 {
 	int			j;
 
-	replace_number(stack_a);
 	j = 0;
 	while (j < size)
 	{
