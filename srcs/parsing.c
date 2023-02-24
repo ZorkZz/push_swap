@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/21 17:00:22 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:53:25 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	verif_double(t_list **lst)
 			if (number == *(int *)temp->content)
 			{
 				ft_putendl_fd("error", 2);
-				ft_lstclear(lst ,free);
+				ft_lstclear(lst, free);
 				exit(1);
 			}
 			temp = temp->next;
