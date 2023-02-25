@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/25 14:59:58 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/25 15:47:29 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	verif_double(t_list **lst)
 		{
 			if (number == *(int *)temp->content)
 			{
-				ft_putendl_fd("error", 2);
+				ft_putendl_fd("Error", 2);
 				ft_lstclear(lst, free);
 				exit(1);
 			}
@@ -71,7 +71,7 @@ void	verify_str(char **strs)
 		j = 0;
 		while (strs[i] && strs[i][j])
 		{
-			if (strs[i][j + 1] && strs[i][j - 1])
+			if (j != 0 && j < (int)ft_strlen(strs[i]))
 			{
 				if (parsing_error(strs[i][j], strs[i][j + 1], \
 					strs[i][j - 1]) == 1)
