@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 16:39:49 by marvin@42.f       #+#    #+#             */
-/*   Updated: 2023/02/24 16:58:19 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:37:33 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	ft_strs_plit(char const *s, char **dest, char c, int index)
 				ft_free(dest, index_dest);
 				return (-1);
 			}
-		index_dest++;
+			index_dest++;
 		}
 	}
 	dest[index_dest] = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/24 16:53:25 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:59:58 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,16 @@ void	verify_str(char **strs)
 	while (strs[i])
 	{
 		j = 0;
-		while (strs[i][j])
+		while (strs[i] && strs[i][j])
 		{
-			if (parsing_error(strs[i][j], strs[i][j + 1], strs[i][j - 1]) == 1)
+			if (strs[i][j + 1] && strs[i][j - 1])
 			{
-				free_strs(strs);
-				exit(1);
+				if (parsing_error(strs[i][j], strs[i][j + 1], \
+					strs[i][j - 1]) == 1)
+				{
+					free_strs(strs);
+					exit(1);
+				}
 			}
 			j++;
 		}
@@ -88,8 +92,8 @@ void	arg_char(t_list **lst, char **argv)
 	int		i;
 
 	args = ft_split(argv[1], ' ');
-	i = 0;
 	verify_str(args);
+	i = 0;
 	while (args && args[i])
 	{
 		add_to_stack(lst, ft_atoi(args[i]));
