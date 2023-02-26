@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/25 15:47:29 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:02:18 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,7 @@ void	verif_double(t_list **lst)
 		while (temp)
 		{
 			if (number == *(int *)temp->content)
-			{
-				ft_putendl_fd("Error", 2);
-				ft_lstclear(lst, free);
-				exit(1);
-			}
+				error(lst);
 			temp = temp->next;
 		}
 		iter++;
@@ -109,13 +105,19 @@ void	parsing(t_list **lst, char **argv, int argc)
 
 	*lst = NULL;
 	if (argc == 2)
+	{
+		if (argv[1][0] == '\0')
+			error(lst);
 		arg_char(lst, argv);
+	}
 	if (argc > 2)
 	{
 		verif_number(argv);
 		iter = 1;
 		while (argv[iter])
 		{
+			if (ft_strncmp(argv[iter], "", ft_strlen(argv[iter])) == 0)
+				error(lst);
 			add_to_stack(lst, ft_atoi(argv[iter]));
 			iter++;
 		}

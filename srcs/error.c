@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_error.c                                    :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 18:02:52 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/26 16:38:44 by astachni         ###   ########.fr       */
+/*   Created: 2023/02/26 16:45:20 by astachni          #+#    #+#             */
+/*   Updated: 2023/02/26 16:46:16 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-int	parsing_error(char c, char d, char e)
+void	error(t_list **lst)
 {
-	if ((c < '0' || c > '9') && c != '-')
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	else if (c == '-' && (!d || ft_isdigit(d) == 0))
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	else if (c == '-' && ft_isdigit(e) != 0)
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	return (0);
+	ft_putendl_fd("Error", 2);
+	ft_lstclear(lst, free);
+	exit(1);
 }

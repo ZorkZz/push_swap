@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:23:29 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/02/22 16:06:38 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:46:40 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int		mean_verif_max(t_list **stack_a, int mean);
 int		mean_verif_min(t_list **stack_a, int mean);
 void	radix(t_list **stack_a, t_list **stack_b);
 t_list	*ft_lstadd_number(void *number);
+void	error(t_list **lst);
 
 #endif
