@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/26 17:02:18 by astachni         ###   ########.fr       */
+/*   Updated: 2023/02/28 23:57:00 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	verify_str(char **strs)
 		j = 0;
 		while (strs[i] && strs[i][j])
 		{
+			if ((j == 0 || j == (int)ft_strlen(strs[i]))
+				&& strs[i][j] != '-' && ft_isdigit(strs[i][j]) == 0)
+				error_pars(strs);
 			if (j != 0 && j < (int)ft_strlen(strs[i]))
 			{
 				if (parsing_error(strs[i][j], strs[i][j + 1], \
@@ -92,6 +95,8 @@ void	arg_char(t_list **lst, char **argv)
 	i = 0;
 	while (args && args[i])
 	{
+		if ((long)ft_atoi(args[i]) != ft_atol(args[i]))
+			error_pars(args);
 		add_to_stack(lst, ft_atoi(args[i]));
 		free (args[i]);
 		i++;
@@ -105,11 +110,7 @@ void	parsing(t_list **lst, char **argv, int argc)
 
 	*lst = NULL;
 	if (argc == 2)
-	{
-		if (argv[1][0] == '\0')
-			error(lst);
 		arg_char(lst, argv);
-	}
 	if (argc > 2)
 	{
 		verif_number(argv);

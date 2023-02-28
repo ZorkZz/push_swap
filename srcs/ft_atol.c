@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_error.c                                    :+:      :+:    :+:   */
+/*   atol.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 18:02:52 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/28 23:39:43 by astachni         ###   ########.fr       */
+/*   Created: 2023/02/28 23:49:53 by astachni          #+#    #+#             */
+/*   Updated: 2023/02/28 23:55:13 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-int	parsing_error(char c, char d, char e)
+long	ft_atol(char *str)
 {
-	if ((c < '0' || c > '9') && c != '-')
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	else if (c == '-' && (!d || ft_isdigit(d) == 0))
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	else if (c == '-' && ft_isdigit(e) != 0)
-	{
-		ft_putendl_fd("Error", 2);
-		return (1);
-	}
-	return (0);
-}
+	long	i;
+	long	nb;
+	int		neg;
 
-void	error_pars(char **strs)
-{
-	ft_putendl_fd("Error", 2);
-	free_strs(strs);
-	exit(1);
+	neg = 1;
+	nb = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		neg *= -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		nb = nb * 10 + str[i++] - 48;
+	return (nb * neg);
 }
