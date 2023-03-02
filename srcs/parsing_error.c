@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:02:52 by astachni          #+#    #+#             */
-/*   Updated: 2023/02/28 23:39:43 by astachni         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:54:29 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	parsing_error(char c, char d, char e)
 	return (0);
 }
 
-void	error_pars(char **strs)
+void	error_pars(char **strs, t_list **lst)
 {
 	ft_putendl_fd("Error", 2);
+	ft_lstclear(lst, free);
 	free_strs(strs);
 	exit(1);
 }
