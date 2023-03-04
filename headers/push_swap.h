@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:23:29 by astachni@st       #+#    #+#             */
-/*   Updated: 2023/03/02 16:54:51 by astachni         ###   ########.fr       */
+/*   Updated: 2023/03/04 15:22:05 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_list	*ft_lstadd_number(void *number);
 void	error(t_list **lst);
 void	error_pars(char **strs, t_list **lst);
 long	ft_atol(char *str);
+char	**ft_strsdup(int size, char **strs);
 
 #endif

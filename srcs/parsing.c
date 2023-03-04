@@ -6,32 +6,39 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:18:30 by astachni          #+#    #+#             */
-/*   Updated: 2023/03/02 18:02:50 by astachni         ###   ########.fr       */
+/*   Updated: 2023/03/04 16:27:11 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	verif_number(char **argv, t_list **lst)
+void	verif_number(int argc, char **argv, t_list **lst)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	**arg_cpy;
 
+	arg_cpy = ft_strsdup(argc, argv);
 	i = 1;
-	while (argv[i])
+	while (arg_cpy[i])
 	{
 		j = 0;
-		while (argv[i][j])
+		while (arg_cpy[i][j])
 		{
-			if ((j == 0 || j == (int)ft_strlen(argv[i]))
-				&& argv[i][j] != '-' && ft_isdigit(argv[i][j]) == 0)
-				error_pars(argv, lst);
-			if (parsing_error(argv[i][j], argv[i][j + 1], argv[i][j - 1]) == 1)
-				exit (1);
+			if ((j == 0 || j == (int)ft_strlen(arg_cpy[i]))
+				&& arg_cpy[i][j] != '-' && ft_isdigit(arg_cpy[i][j]) == 0)
+				error_pars(arg_cpy, lst);
+			if ((j != 0 && j != (int)ft_strlen(arg_cpy[i])) && parsing_error(
+					arg_cpy[i][j], arg_cpy[i][j + 1], arg_cpy[i][j - 1]) == 1)
+			{
+				free_strs(arg_cpy);
+				exit(1);
+			}
 			j++;
 		}
 		i++;
 	}
+	free_strs(arg_cpy);
 }
 
 void	verif_double(t_list **lst)
@@ -120,7 +127,7 @@ void	parsing(t_list **lst, char **argv, int argc)
 	{
 		if (argv[1][0] == '\0')
 			error(lst);
-		verif_number(argv, lst);
+		verif_number(argc, argv, lst);
 		iter = 1;
 		while (argv[iter])
 		{
