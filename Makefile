@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:19:24 by astachni@st       #+#    #+#              #
-#    Updated: 2023/03/04 16:44:22 by astachni         ###   ########.fr        #
+#    Updated: 2023/03/22 14:23:56 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,17 +30,19 @@ RM = rm -f
 
 HEADERS = headers/push_swap.h
 
-all: libft $(NAME)
+all: $(NAME)
 
-libft:
-	$(MAKE) -C libs/libft bonus
+$(LIBS):	FORCE
+	$(MAKE) -C libs/libft all
+
+FORCE:
 
 $(OBJS_DIR)%.o: %.c $(HEADERS) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):	$(OBJS) $(LIBS) $(HEADERS) Makefile
+$(NAME):	$(LIBS) $(OBJS) $(HEADERS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
-	@norminette
+	# @norminette
 
 clean:
 	make clean -C libs/libft
